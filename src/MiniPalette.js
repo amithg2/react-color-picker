@@ -22,7 +22,7 @@ function MiniPalette(props) {
 
   return (
     <div className={classes.root} onClick={props.handleClick}>
-      <div classname={classes.delete}>
+      <div className={classes.delete}>
         <DeleteIcon
           className={classes.deleteIcon}
           style={{ transition: "all 0.25s ease-in" }}

@@ -187,7 +187,6 @@ const data = [
   { name: "ReefEncounter", color: "#079992" },
 ];
 
-
-export default function getRand (num) {
-    return data[num]
+export default function getRand(num) {
+  return data[num];
 }

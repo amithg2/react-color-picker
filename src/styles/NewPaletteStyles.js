@@ -1,7 +1,6 @@
 import { styled } from "@mui/material/styles";
-import sizes from "./sizeHelpers";
 
-import {DRAWERWIDTH} from './constants'
+import { DRAWERWIDTH } from "./constants";
 const drawerWidth = DRAWERWIDTH;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -20,7 +19,7 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
       }),
-   
+
       marginLeft: 0,
     }),
   })
@@ -43,6 +42,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-export {DrawerHeader}
-export {mainButtons}
-export {Main}
+export { DrawerHeader };
+export { mainButtons };
+export { Main };

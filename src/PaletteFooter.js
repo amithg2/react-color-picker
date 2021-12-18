@@ -1,8 +1,8 @@
 import { withStyles } from "@mui/styles";
-import styles from './styles/PaletteFooterStyles'
+import styles from "./styles/PaletteFooterStyles";
 
 function PaletteFooter(props) {
-    const {classes} = props
+  const { classes } = props;
   return (
     <footer className={classes.PaletteFooter}>
       <p>{props.paletteName}</p>

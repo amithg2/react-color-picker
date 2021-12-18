@@ -7,8 +7,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import PaletteFooter from "./PaletteFooter";
 import { Link } from "react-router-dom";
 import { withStyles } from "@mui/styles";
-import styles from './styles/SinglePaletteStyles'
-
+import styles from "./styles/SinglePaletteStyles";
 
 class SinglePalette extends Component {
   constructor(props) {
@@ -30,7 +29,7 @@ class SinglePalette extends Component {
 
     for (let color in colors) {
       const col = this.props.colors.colors[color];
-      const findCol = (function () {
+      (function () {
         for (let i = 0; i < col.length; i++) {
           if (col[i].id === id) {
             singlePalette.push(col[i]);

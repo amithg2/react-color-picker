@@ -3,13 +3,9 @@ import { SketchPicker } from "react-color";
 import { Button } from "@mui/material";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { withStyles } from "@mui/styles";
-import styles from './styles/NewColorPickerStyles'
+import styles from "./styles/NewColorPickerStyles";
 
 class NewColorPicker extends Component {
-  constructor(props) {
-    super(props);
-  }
-  
   render() {
     const {
       color,
@@ -18,12 +14,16 @@ class NewColorPicker extends Component {
       colorName,
       allColors,
       handleColorChange,
-      classes
+      classes,
     } = this.props;
 
     return (
       <div className={classes.container}>
-        <SketchPicker color={color} onChangeComplete={handleColorChange} className={classes.picker} />
+        <SketchPicker
+          color={color}
+          onChangeComplete={handleColorChange}
+          className={classes.picker}
+        />
 
         <ValidatorForm
           onSubmit={changeColorHandler}

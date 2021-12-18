@@ -7,8 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
 import { Link } from "react-router-dom";
 import { withStyles } from "@mui/styles";
-import styles from './styles/NavBarPaletteStyles'
-
+import styles from "./styles/NavBarPaletteStyles";
 
 class NavBarPalette extends Component {
   constructor(props) {
@@ -26,11 +25,14 @@ class NavBarPalette extends Component {
   }
 
   render() {
-    const { curLevel,classes } = this.props;
+    const { curLevel, classes } = this.props;
     return (
       <header className={classes.header}>
         <Link to="/" className={classes.logo}>
           reactcolorpicker
+        </Link>
+        <Link to="/" className={classes.smallLogo}>
+          R
         </Link>
         {curLevel && (
           <div className={classes.NavSlider}>

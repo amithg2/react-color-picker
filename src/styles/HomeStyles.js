@@ -1,21 +1,28 @@
 import sizes from "./sizeHelpers";
 
 const styles = {
-    '@global' :{
-        '.fade-exit':{
-            opacity: '1',
-        },'.fade-exit-active':{
-            opacity: '0',
-            transition: 'opacity 500ms ease-out'
-        }
+  "@global": {
+    ".fade-exit": {
+      opacity: "1",
     },
+    ".fade-exit-active": {
+      opacity: "0",
+      transition: "opacity 500ms ease-out",
+    },
+  },
   root: {
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
-    backgroundColor: '#5A5AAA',
-    overFlow: 'scroll',
-    height: '100vh'
+    overFlow: "scroll",
+    minHeight: "100vh",
+    backgroundColor: "#5A5AAA",
+    [sizes.down("lg")]: {
+      minHeight: "150vh",
+    },
+    [sizes.down("sm")]: {
+      minHeight: "300vh",
+    },
   },
   container: {
     width: "50%",
@@ -26,8 +33,11 @@ const styles = {
     [sizes.down("md")]: {
       width: "70%",
     },
+    [sizes.down("sm")]: {
+      width: "40%",
+    },
     [sizes.down("xs")]: {
-      width: "90%",
+      width: "60%",
     },
   },
   nav: {

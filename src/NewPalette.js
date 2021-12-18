@@ -13,13 +13,12 @@ import { arrayMove } from "react-sortable-hoc";
 import getRand from "./randData";
 import NewPaletteNav from "./NewPaletteNav";
 import NewColorPicker from "./NewColorPicker";
-import {Main, DrawerHeader, mainButtons,} from './styles/NewPaletteStyles'
+import { Main, DrawerHeader, mainButtons } from "./styles/NewPaletteStyles";
 const drawerWidth = 300;
-
 
 export default function NewPalette(props) {
   const [open, setOpen] = React.useState(false);
-  const [color, setColor] = React.useState('');
+  const [color, setColor] = React.useState("");
   const [allColors, setAllColors] = React.useState("");
   const [colorName, setColorName] = React.useState("");
   const [paletteName, setPaletteName] = React.useState("");
@@ -27,7 +26,6 @@ export default function NewPalette(props) {
   const allPaletteNames = props.allPaletteNames;
 
   useEffect(() => {
-    
     ValidatorForm.addValidationRule("isUniqePaletteName", (value) => {
       let val = true;
       allPaletteNames.filter((e) => {
@@ -38,24 +36,24 @@ export default function NewPalette(props) {
       return val;
     });
     ValidatorForm.addValidationRule("isColorNameUniqe", (value) => {
-        let val = true; 
-        allColors.filter((e) => {
-          if (e.name === value) {
-            val = false;
-          }
-        });
-        return val;
+      let val = true;
+      allColors.filter((e) => {
+        if (e.name === value) {
+          val = false;
+        }
       });
-      ValidatorForm.addValidationRule("isColorUniqe", (value) => {
-        let val = true;
-       
-        allColors.filter((e) => {
-          if (e.color === color) {
-            val = false;
-          }
-        });
-        return val;
+      return val;
+    });
+    ValidatorForm.addValidationRule("isColorUniqe", (value) => {
+      let val = true;
+
+      allColors.filter((e) => {
+        if (e.color === color) {
+          val = false;
+        }
       });
+      return val;
+    });
 
     if (runPalette) {
       getPalette();
@@ -76,7 +74,7 @@ export default function NewPalette(props) {
       name: colorName,
     };
     setAllColors([...allColors, newColor]);
-    setColorName('')
+    setColorName("");
   };
   const handleColorNameChange = (e) => {
     setColorName(e.target.value);
@@ -159,34 +157,33 @@ export default function NewPalette(props) {
         anchor="left"
         open={open}
       >
-        <DrawerHeader style={{zIndex: '2'}}>
+        <DrawerHeader style={{ zIndex: "2" }}>
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
           </IconButton>
         </DrawerHeader>
         <Divider />
         <div style={mainButtons.h4}>
-        <Typography variant="h4">Design Your Pallete</Typography>
-        <div>
-          <Button
-            variant="contained"
-            color="error"
-            onClick={handleClearPalette}
-          >
-            Clear Palette
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            disabled={allColors.length >= 20 ? true : false}
-            onClick={getRandColor}
-          >
-            {allColors.length >= 20 ? "Palette is Full" : "Random Color"}
-          </Button>
+          <Typography variant="h4">Design Your Pallete</Typography>
+          <div>
+            <Button
+              variant="contained"
+              color="error"
+              onClick={handleClearPalette}
+            >
+              Clear Palette
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              disabled={allColors.length >= 20 ? true : false}
+              onClick={getRandColor}
+            >
+              {allColors.length >= 20 ? "Palette is Full" : "Random Color"}
+            </Button>
+          </div>
         </div>
 
-        </div>
-        
         <NewColorPicker
           color={color}
           handleColorChange={handleColorChange}
@@ -196,7 +193,7 @@ export default function NewPalette(props) {
           colorName={colorName}
         />
       </Drawer>
-      <Main open={open}  >
+      <Main open={open}>
         <DrawerHeader />
         <DragableColorList
           onSortEnd={onSortEnd}

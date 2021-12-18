@@ -7,8 +7,7 @@ import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { withStyles } from "@mui/styles";
 import SavePaletteDialog from "./SavePaletteDialog";
-import {styles,AppBar} from './styles/newPaletteNavStyles'
-
+import { styles, AppBar } from "./styles/newPaletteNavStyles";
 
 class NewPaletteNav extends Component {
   render() {
@@ -37,7 +36,7 @@ class NewPaletteNav extends Component {
               Create Palette
             </Typography>
           </Toolbar>
-          <div style={styles.buttons} >
+          <div style={styles.buttons}>
             <SavePaletteDialog
               style={{ zInddex: "30" }}
               handleSavePalette={handleSavePalette}
@@ -45,8 +44,8 @@ class NewPaletteNav extends Component {
               handlePaletteNameChange={handlePaletteNameChange}
               classes={classes}
             />
-            <Link to="/" style={{margin: '0.8rem', textDecoration : 'none'}}>
-              <Button variant="contained" color="error" type="submit" >
+            <Link to="/" style={{ margin: "0.8rem", textDecoration: "none" }}>
+              <Button variant="contained" color="error" type="submit">
                 Back
               </Button>
             </Link>

@@ -7,7 +7,6 @@ const styles = {
     height: (props) => (props.showMore ? "25%" : "50%"),
     margin: "0 auto",
     position: "relative",
-    
     cursor: "pointer",
     fontFamily: "Roboto, sans-serif",
     fontWeight: "100",

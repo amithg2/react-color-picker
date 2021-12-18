@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { SortableContainer } from "react-sortable-hoc";
 import DragableColorBox from "./DragableColorBox";
 
 const DragableColorList = SortableContainer(
   ({ allColors, handleClickDelete }) => {
-        
     if (allColors) {
       return (
         <div style={{ height: "100%" }}>
@@ -20,7 +19,7 @@ const DragableColorList = SortableContainer(
         </div>
       );
     } else {
-        return <div></div>
+      return null;
     }
   }
 );

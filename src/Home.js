@@ -20,26 +20,25 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.goToPalette = this.goToPalette.bind(this);
-    this.handleDialogDeleteOpen = this.handleDialogDeleteOpen.bind(this)
-    this.handleDelete = this.handleDelete.bind(this)
-    this.closeDialog = this.closeDialog.bind(this)
-    this.state ={isDialogDeleteOpen: false, atemptToDelete: ''}
-}
+    this.handleDialogDeleteOpen = this.handleDialogDeleteOpen.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.closeDialog = this.closeDialog.bind(this);
+    this.state = { isDialogDeleteOpen: false, atemptToDelete: "" };
+  }
 
   goToPalette(id) {
     this.props.history.push(`/palette/${id}`);
   }
   closeDialog() {
-    this.setState({isDialogDeleteOpen: false, atemptToDelete: ''})
-
+    this.setState({ isDialogDeleteOpen: false, atemptToDelete: "" });
   }
   handleDialogDeleteOpen(id) {
-      this.setState({isDialogDeleteOpen: true, atemptToDelete: id})
+    this.setState({ isDialogDeleteOpen: true, atemptToDelete: id });
   }
 
-  handleDelete () {
-    this.props.deletePalette(this.state.atemptToDelete)
-    this.closeDialog()
+  handleDelete() {
+    this.props.deletePalette(this.state.atemptToDelete);
+    this.closeDialog();
   }
 
   showAllPalettes() {
@@ -51,7 +50,7 @@ class Home extends Component {
             emoji={e.emoji}
             colors={e.colors}
             id={e.id}
-            deletePalette={() => this.handleDialogDeleteOpen (e.id)}
+            deletePalette={() => this.handleDialogDeleteOpen(e.id)}
             handleClick={() => this.goToPalette(e.id)}
           />
         </CSSTransition>
@@ -64,7 +63,7 @@ class Home extends Component {
       <div className={this.props.classes.root}>
         <div className={this.props.classes.container}>
           <nav className={this.props.classes.nav}>
-            <h1>react color!</h1>
+            <h1>React Color App</h1>
             <Link to="/palette/new">New Palette</Link>
           </nav>
           <TransitionGroup className={this.props.classes.palettes}>

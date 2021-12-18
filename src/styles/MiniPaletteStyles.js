@@ -1,6 +1,5 @@
 import sizes from "./sizeHelpers";
 
-
 const styles = {
   root: {
     backgroundColor: "white",
@@ -12,11 +11,11 @@ const styles = {
 
     cursor: "pointer",
     [sizes.down("md")]: {
-          transform: 'scaley(1.1)',
-          '& svg' : {
-              opacity: 1
-          }
+      transform: "scaley(1.1)",
+      "& svg": {
+        opacity: 1,
       },
+    },
     "&:hover svg": {
       opacity: 1,
     },
@@ -27,7 +26,6 @@ const styles = {
     width: "100%",
     borderRadius: "5px",
     overflow: "hidden",
-    
   },
   title: {
     display: "flex",
@@ -59,9 +57,8 @@ const styles = {
     position: "absolute",
     top: "0px",
     right: "0px",
-    zIndex: '10',
-    opacity: '0',
-    
+    zIndex: "10",
+    opacity: "0",
   },
 };
 

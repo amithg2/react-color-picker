@@ -5,9 +5,9 @@ import Snackbar from "@mui/material/Snackbar";
 import React from "react";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import PaletteFooter from './PaletteFooter'
+import PaletteFooter from "./PaletteFooter";
 import { withStyles } from "@mui/styles";
-import styles from './styles/PaletteStyles'
+import styles from "./styles/PaletteStyles";
 
 class Palette extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class Palette extends Component {
             key={i}
             paletteId={this.props.paletteId}
             colorId={e.id}
-            formatVal ={this.state.format}
+            formatVal={this.state.format}
           />
         );
       });
@@ -45,7 +45,7 @@ class Palette extends Component {
             key={i}
             paletteId={this.props.paletteId}
             colorId={e.id}
-            formatVal ={this.state.format}
+            formatVal={this.state.format}
           />
         );
       });
@@ -59,7 +59,7 @@ class Palette extends Component {
             key={i}
             paletteId={this.props.paletteId}
             colorId={e.id}
-            formatVal ={this.state.format}
+            formatVal={this.state.format}
           />
         );
       });
@@ -80,7 +80,7 @@ class Palette extends Component {
   }
 
   render() {
-    const { paletteId,classes } = this.props;
+    const { classes } = this.props;
     const { level, format, isSnackBar } = this.state;
     const closeAction = (
       <React.Fragment>
@@ -113,8 +113,10 @@ class Palette extends Component {
             onClose={this.handleCloseSnack}
           />
         </div>
-        <PaletteFooter paletteName ={this.props.colors.paletteName} emoji={this.props.colors.emoji}/>
-        
+        <PaletteFooter
+          paletteName={this.props.colors.paletteName}
+          emoji={this.props.colors.emoji}
+        />
       </div>
     );
   }

@@ -17,8 +17,6 @@ const styles = {
     [sizes.down("sm")]: {
       position: "sticky",
       display: "flex",
-    
-
     },
   },
   selectLayout: {
@@ -38,7 +36,22 @@ const styles = {
     [sizes.down("md")]: {
       height: "40%",
     },
-  
+    [sizes.down("xs")]: {
+      display: "none",
+    },
+  },
+  smallLogo: {
+    backgroundColor: "#d6d8db",
+    padding: "10px",
+    margin: "0 5px",
+    fontSize: "24px",
+
+    textDecoration: "none",
+
+    display: "none",
+    [sizes.down("xs")]: {
+      display: "block",
+    },
   },
   NavSlider: {
     display: "flex",

@@ -17,7 +17,7 @@ function SavePaletteDialog(props) {
 
   const handleClose = () => {
     setOpen(false);
-    setOpenEmoji(false)
+    setOpenEmoji(false);
   };
   const openEmojiPage = () => {
     setOpenEmoji(true);
@@ -26,8 +26,7 @@ function SavePaletteDialog(props) {
     props.handleSavePalette(emoji.native);
   };
 
-  const {  paletteName, handlePaletteNameChange, classes } =
-    props;
+  const { paletteName, handlePaletteNameChange, classes } = props;
   return (
     <div style={{ zIndex: "30", flexDirection: "column", display: "flex" }}>
       <Button variant="contained" onClick={handleClickOpen} color="secondary">
@@ -56,7 +55,6 @@ function SavePaletteDialog(props) {
             <Button variant="contained" color="error" type="submit">
               Next
             </Button>
-            
           </ValidatorForm>
 
           <DialogActions>
@@ -66,7 +64,7 @@ function SavePaletteDialog(props) {
       ) : (
         <Dialog open={open} onClose={handleClose}>
           <DialogTitle>Give it an emoji!</DialogTitle>
-          <Picker onClick={savingPalette}/>
+          <Picker onClick={savingPalette} />
           <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>
           </DialogActions>
