@@ -9,7 +9,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { Button } from "@mui/material";
 import { ValidatorForm } from "react-material-ui-form-validator";
 import DragableColorList from "./DragableColorList";
-import { arrayMove } from "react-sortable-hoc";
+import {arrayMoveImmutable} from 'array-move'
 import getRand from "./randData";
 import NewPaletteNav from "./NewPaletteNav";
 import NewColorPicker from "./NewColorPicker";
@@ -23,7 +23,7 @@ export default function NewPalette(props) {
   const [colorName, setColorName] = React.useState("");
   const [paletteName, setPaletteName] = React.useState("");
   const [runPalette, setRunPalette] = React.useState(true);
-  const allPaletteNames = props.allPaletteNames;
+  const {allPaletteNames} = props
 
   useEffect(() => {
     ValidatorForm.addValidationRule("isUniqePaletteName", (value) => {
@@ -102,7 +102,7 @@ export default function NewPalette(props) {
     setAllColors(newArr);
   };
   const onSortEnd = ({ oldIndex, newIndex }) => {
-    setAllColors((colors) => arrayMove(colors, oldIndex, newIndex));
+    setAllColors((colors) => arrayMoveImmutable(colors, oldIndex, newIndex));
   };
   const handleClearPalette = () => {
     setAllColors([]);
@@ -118,8 +118,7 @@ export default function NewPalette(props) {
       setAllColors([...allColors, randColor]);
     }
   };
-  const getPalette = () => {
-    setTimeout(() => {
+  const getPalette = async  () => {
       const paletteArr = [];
       const rand = Math.floor(Math.random() * 175);
       let randColor = getRand(rand);
@@ -130,8 +129,8 @@ export default function NewPalette(props) {
         paletteArr.push(randColor);
       }
       setRunPalette(false);
-      setAllColors(paletteArr);
-    }, 500);
+      await setAllColors(paletteArr);
+  
   };
 
   return (
@@ -195,12 +194,13 @@ export default function NewPalette(props) {
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
+        { allColors &&
         <DragableColorList
           onSortEnd={onSortEnd}
           axis="xy"
           allColors={allColors}
           handleClickDelete={handleClickDelete}
-        />
+        />}
       </Main>
     </Box>
   );

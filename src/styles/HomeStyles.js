@@ -15,7 +15,7 @@ const styles = {
     alignItems: "flex-start",
     justifyContent: "center",
     overFlow: "scroll",
-    minHeight: "100vh",
+    minHeight: "120vh",
     backgroundColor: "#5A5AAA",
     [sizes.down("lg")]: {
       minHeight: "150vh",
